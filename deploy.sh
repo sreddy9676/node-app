@@ -5,5 +5,6 @@ if [ $node_app=='nodeapp' ]; then
      echo "nodeapp is running, lets delete"
      docker rm -f nodeapp
 fi
-
-docker run -d -p 9090:8080 --name=nodeapp sreddy9676/node:1.0
+images=`docker images | grep kammana/nodejenkins | awk '{print $3}'`
+docker rmi $images
+docker run -d -p 9090:8080 --name=nodeapp sreddy9676/node $1
