@@ -7,4 +7,4 @@ if [ $node_app=='nodeapp' ]; then
 fi
 images=`docker images | grep sreddy9676/node | awk '{print $3}'`
 docker rmi $images
-docker run -d -p 9090:8080 --name=nodeapp $1
+docker run -d -p 9090:8080 --name=nodeapp $2
