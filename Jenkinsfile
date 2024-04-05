@@ -1,6 +1,6 @@
 node{
     def imgVersion = UUID.randomUUID().toString()
-    def dockerImage = "kammana/nodeapp-6pm:${imgVersion}"
+    def dockerImage = "muni/nodeapp-6pm:${imgVersion}"
     stage('Source Checkout'){
         
         git 'https://github.com/javahometech/node-app'
@@ -13,7 +13,7 @@ node{
     
     stage('Push DockerHub'){
 		withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerhubPwd')]) {
-			sh "docker login -u kammana -p Muni1234"
+			sh "docker login -u kammana -p Muni124"
 		}
         
         sh "docker push ${dockerImage}"
