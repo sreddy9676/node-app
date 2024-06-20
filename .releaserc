@@ -1,5 +1,12 @@
 # This file represents the configuration for generating releases
-plugins: ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/npm', '@semantic-release/github']
+plugins: [
+  '@semantic-release/commit-analyzer',
+  '@semantic-release/release-notes-generator',
+  '@semantic-release/npm',
+  '@semantic-release/github',
+  '@semantic-release/changelog',
+  '@semantic-release/git'
+]
 
 branches: ['develop', {name: 'hotfix', prerelease: true}]
 ci: true
@@ -10,12 +17,11 @@ dryRun: false
 tagFormat: 'v${version}'
 
 preset: 'conventionalcommits'
-gitlabUrl: 'https://gitlab.com/'
 
 verifyConditions:
   - '@semantic-release/changelog'
   - '@semantic-release/git'
-  - '@semantic-release/gitlab'
+  - '@semantic-release/github'
 
 # Analyze and decide type of release
 # Type represents the commit message keyword
@@ -61,10 +67,9 @@ prepare:
     message: 'RELEASE: v${nextRelease.version}'
     assets: ['CHANGELOG.md']
 
-
-# Publish as a gitlab release
+# Publish as a GitHub release
 publish:
-  - path: '@semantic-release/gitlab'
+  - path: '@semantic-release/github'
 
 success: false
 fail: false
