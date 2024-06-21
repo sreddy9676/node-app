@@ -18,6 +18,9 @@
   "bin": {
     "semantic-release": "bin/semantic-release.js"
   },
+  "release": {
+    "branches": ["master", "develop", "feature/*"]
+  },
   "bugs": {
     "url": "https://github.com/semantic-release/semantic-release/issues"
   },
@@ -163,9 +166,4 @@
     ]
   },
   "packageManager": "npm@10.8.1"
-}
-{
-  "release": {
-    "branches": ["master", "develop", "feature/*"]
-  }
 }
