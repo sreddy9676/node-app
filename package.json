@@ -18,10 +18,6 @@
   "bin": {
     "semantic-release": "bin/semantic-release.js"
   },
-  "release": {
-    
-    "branches" : ["master", {name: 'hotfix', prerelease: true}]
-  },
   "bugs": {
     "url": "https://github.com/semantic-release/semantic-release/issues"
   },
